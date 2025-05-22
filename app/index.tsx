@@ -13,18 +13,18 @@ export default function Index() {
   };
 
   return (
-		<SafeAreaView>
-			<View style={styles.container}>
-				<Text style={styles.buttonText}>{count}</Text>
-				<Pressable style={styles.button} onPress={increment}>
-          <Text style={styles.buttonText}>Increment</Text>
-        </Pressable>
-        <Pressable style={styles.button} onPress={reset}>
-          <Text style={styles.buttonText}>Reset</Text>
-        </Pressable>
-			</View>
-		</SafeAreaView>
-	)
+	<SafeAreaView>
+	  <View style={styles.container}>
+	    <Text style={styles.buttonText}>{count}</Text>
+	    <Pressable style={styles.button} onPress={increment}>
+		  <Text style={styles.buttonText}>Increment</Text>
+            </Pressable>
+            <Pressable style={styles.button} onPress={reset}>
+          	  <Text style={styles.buttonText}>Reset</Text>
+            </Pressable>
+	  </View>
+	</SafeAreaView>
+  )
 }
 
 const styles = StyleSheet.create({
