@@ -1,4 +1,3 @@
-// app/details/_layout.tsx
 import { Stack } from 'expo-router'
 import { Text } from 'react-native'
 
