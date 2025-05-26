@@ -3,15 +3,15 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function ProfileScreen() {
     return (
-			<SafeAreaView style={styles.container}>
-				<Image
-					source={{ uri: 'https://i.pravatar.cc/150?img=12' }}
-					style={styles.avatar}
-				/>
-				<Text style={styles.name}>John Doe</Text>
-				<Text style={styles.email}>john.doe@example.com</Text>
-			</SafeAreaView>
-		)
+		<SafeAreaView style={styles.container}>
+			<Image
+				source={{ uri: 'https://i.pravatar.cc/150?img=12' }}
+				style={styles.avatar}
+			/>
+			<Text style={styles.name}>John Doe</Text>
+			<Text style={styles.email}>john.doe@example.com</Text>
+		</SafeAreaView>
+	)
 }
 
 const styles = StyleSheet.create({
