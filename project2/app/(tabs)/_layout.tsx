@@ -1,51 +1,79 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-import { Tabs } from 'expo-router'
-import Ionicons from '@expo/vector-icons/Ionicons'
+import { ThemeProvider, useTheme } from '@/contexts/theme-context';
+import Ionicons from '@expo/vector-icons/Ionicons';
+import { Tabs } from 'expo-router';
+import React from 'react';
+import { StyleSheet } from 'react-native';
 
-export default function TabLayout(){
-  return (
+function ThemedTabs() {
+	const { theme } = useTheme();
+	const isDark = theme === 'dark';
+
+	const iconColor = isDark ? '#fff' : '#000';
+	const backgroundColor = isDark ? '#1c1c1e' : '#fff';
+	const labelColor = isDark ? '#fff' : '#000';
+
+	return (
 		<Tabs
 			screenOptions={{
 				headerShown: false,
+				tabBarStyle: {
+					backgroundColor: backgroundColor,
+				},
+				tabBarLabelStyle: {
+					color: labelColor,
+				},
 			}}
 		>
 			<Tabs.Screen
 				options={{
-					animation: 'none',
 					title: 'Home',
+					animation: 'none',
 					tabBarIcon: ({ focused }) => (
 						<Ionicons
 							name={focused ? 'home' : 'home-outline'}
 							size={24}
-							color='black'
+							color={iconColor}
 						/>
 					),
-					tabBarLabelStyle: {
-						color: 'black',
-					},
 				}}
-				name='home'
+				name="home"
 			/>
 			<Tabs.Screen
 				options={{
-					animation: 'none',
 					title: 'Profile',
+					animation: 'none',
 					tabBarIcon: ({ focused }) => (
 						<Ionicons
 							name={focused ? 'person' : 'person-outline'}
 							size={24}
-							color='black'
+							color={iconColor}
 						/>
 					),
-					tabBarLabelStyle: {
-						color: 'black',
-					},
 				}}
-				name='profile'
+				name="profile"
+			/>
+			<Tabs.Screen
+				options={{
+					title: 'Settings',
+					animation: 'none',
+					tabBarIcon: ({ focused }) => (
+						<Ionicons
+							name={focused ? 'settings' : 'settings-outline'}
+							size={24}
+							color={iconColor}
+						/>
+					),
+				}}
+				name="settings"
 			/>
 		</Tabs>
-	)
+	);
 }
 
-const styles = StyleSheet.create({})
+export default function TabLayout() {
+	return (
+		<ThemedTabs />
+	);
+}
+
+const styles = StyleSheet.create({});
